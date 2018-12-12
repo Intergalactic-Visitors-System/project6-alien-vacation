@@ -85,7 +85,7 @@ class Language extends Component {
             })
           }
         </select>
-        <div className="select-selected" onClick={this.showSelect}>
+        <div className="select-selected" onClick={this.showSelect} >
           <p className="chosen-lang">Search by Language</p>
         </div>
         <div className="select-items select-items-language select-hide">
