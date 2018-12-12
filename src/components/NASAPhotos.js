@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import apiKeys from "../data/secrets";
+import defaultPicture from "../assets/default.png";
 
 class NASAPhotos extends Component {
     constructor(){
@@ -21,7 +22,7 @@ class NASAPhotos extends Component {
                 lat: this.props.lat,
                 lon: this.props.lng,
                 cloud_score: true,
-                api_key: apiKeys.nasa     
+                api_key: apiKeys.nasa
             }
         }).then((response) => {
             this.setState({
@@ -32,10 +33,17 @@ class NASAPhotos extends Component {
     }
 
     render(){
+        let image;
+        if (this.state.NASAPhoto !== '') {
+            image = this.state.NASAPhoto;
+        }
+        else {
+            image = defaultPicture;
+        }
         return(
             // add alt
             <img className=
-            "nasa" src={this.state.NASAPhoto} alt="" />
+                "nasa" src={image} alt="Satellite View" />
         )
     }
 }
